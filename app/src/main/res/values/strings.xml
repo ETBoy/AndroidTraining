@@ -5,4 +5,6 @@
     <string name="LoginNameTip">请输入您的登录名称</string>
     <string name="LoginPasswordLabel">登录密码</string>
     <string name="PasswordTip">请输入您的登录密码</string>
+    <string name="content_main_Ok">确定</string>
+    <string name="content_main_cancel">取消</string>
 </resources>
