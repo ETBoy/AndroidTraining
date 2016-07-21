@@ -1,10 +1,13 @@
 package com.example.lsx.androidtraining;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,15 +44,39 @@ Button btOk,btCancel;
                 String strPassword=etPassword.getText().toString();
                 if(strLoginName=="Admin" && strPassword=="123456")
                 {
-                    Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                    Log.d("MainActivity","用户登录成功，进入系统。");
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "登录帐号或密码有误！请重试！", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder dialog=new AlertDialog.Builder(MainActivity.this);
+                    dialog.setTitle("错误提示");
+                    dialog.setMessage("登录帐号或密码有误！请重试！");
+                    dialog.setCancelable(false);
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    dialog.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    dialog.show();
+                  //  Toast.makeText(MainActivity.this, "登录帐号或密码有误！请重试！", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        btCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
