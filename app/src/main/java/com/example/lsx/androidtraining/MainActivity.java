@@ -8,9 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+Button btOk,btCancel;
+    EditText etLoginName,etPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,26 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        btOk=(Button)findViewById(R.id.content_main_btOk);
+        btCancel=(Button) findViewById(R.id.content_main_btCancel);
+        btOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etLoginName=(EditText) findViewById(R.id.content_main_etLoginName);
+                String strLoginName= etLoginName.getText().toString();
+                etPassword = (EditText)findViewById(R.id.content_main_etPassword);
+                String strPassword=etPassword.getText().toString();
+                if(strLoginName=="Admin" && strPassword=="123456")
+                {
+                    Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "登录帐号或密码有误！请重试！", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     @Override
