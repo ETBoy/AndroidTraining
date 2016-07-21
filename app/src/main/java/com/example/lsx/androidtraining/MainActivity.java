@@ -42,7 +42,7 @@ Button btOk,btCancel;
                 String strLoginName= etLoginName.getText().toString();
                 etPassword = (EditText)findViewById(R.id.content_main_etPassword);
                 String strPassword=etPassword.getText().toString();
-                if(strLoginName=="Admin" && strPassword=="123456")
+                if(strLoginName.equals("Admin") && strPassword.equals("123456"))
                 {
                     //Toast.makeText(MainActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
                     Log.d("MainActivity","用户登录成功，进入系统。");
